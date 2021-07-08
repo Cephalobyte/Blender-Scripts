@@ -151,6 +151,9 @@ def detectVertPair(_vertList):
 def generateWheels():
 	iMeshVerts = [e.vertices[0] for e in mesh.edges] + [e.vertices[1] for e in mesh.edges]
 	loneVerts = [v for v in verts if v.index not in iMeshVerts]
+	
+	if len(loneVerts) < 2:
+		return
 
 	posPairs = [detectVertPair(loneVerts), detectVertPair(loneVerts)]
 	
